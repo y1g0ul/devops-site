@@ -47,3 +47,5 @@ docker-compose.override.yml
 *.tmp
 *.swp
 *~
+
+SITE_GUIDE_RU.md

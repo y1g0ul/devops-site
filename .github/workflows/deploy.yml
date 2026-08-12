@@ -1,0 +1,51 @@
+name: Deploy production
+
+on:
+  workflow_dispatch:
+
+# Деплои нельзя выполнять параллельно: второй запуск будет ждать завершения
+# текущего, а не прервёт его на середине обновления.
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Deploy main to VPS
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      DEPLOY_HOST: ${{ secrets.SSH_HOST }}
+      DEPLOY_USER: ${{ secrets.SSH_USER }}
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+      DEPLOY_PATH: ${{ vars.DEPLOY_PATH }}
+
+    steps:
+      - name: Update application on VPS
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          for variable in DEPLOY_HOST DEPLOY_USER SSH_PRIVATE_KEY SSH_KNOWN_HOSTS DEPLOY_PATH; do
+            if [[ -z "${!variable}" ]]; then
+              echo "Missing GitHub Actions secret or variable: ${variable}"
+              exit 1
+            fi
+          done
+
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+          eval "$(ssh-agent -s)"
+          trap 'ssh-agent -k > /dev/null' EXIT
+          ssh-add - <<< "$SSH_PRIVATE_KEY"
+
+          remote_path="$(printf '%q' "$DEPLOY_PATH")"
+          ssh -o BatchMode=yes -o StrictHostKeyChecking=yes "$DEPLOY_USER@$DEPLOY_HOST" \
+            "cd -- $remote_path && git fetch origin main && git checkout main && git pull --ff-only origin main && docker compose up -d --build --remove-orphans && docker compose ps"
+
