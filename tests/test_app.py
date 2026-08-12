@@ -13,6 +13,24 @@ class PortfolioRoutesTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn("НИКИТА", response.get_data(as_text=True))
 
+    def test_terminal_input_cannot_submit_a_get_form(self):
+        response = self.client.get("/")
+        html = response.get_data(as_text=True)
+
+        self.assertNotIn('<form id="terminal-form"', html)
+        self.assertIn('id="terminal-input-group"', html)
+        self.assertIn("js/main.js?v=2", html)
+
+    def test_terminal_enter_is_handled_in_javascript(self):
+        response = self.client.get("/static/js/main.js")
+        javascript = response.get_data(as_text=True)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('addEventListener("keydown"', javascript)
+        self.assertIn('event.key !== "Enter"', javascript)
+        self.assertIn("event.preventDefault()", javascript)
+        response.close()
+
     def test_health(self):
         response = self.client.get("/health")
 

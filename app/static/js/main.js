@@ -23,7 +23,6 @@ const terminalReplies = {
   ],
 };
 
-const terminalForm = document.querySelector("#terminal-form");
 const terminalInput = document.querySelector("#terminal-command");
 const terminalOutput = document.querySelector("#terminal-output");
 const clearButton = document.querySelector("#terminal-clear");
@@ -67,10 +66,16 @@ function runTerminalCommand(rawCommand) {
   });
 }
 
-terminalForm?.addEventListener("submit", (event) => {
-  event.preventDefault();
+function submitTerminalCommand() {
   runTerminalCommand(terminalInput.value);
   terminalInput.value = "";
+}
+
+terminalInput?.addEventListener("keydown", (event) => {
+  if (event.key !== "Enter" || event.isComposing) return;
+
+  event.preventDefault();
+  submitTerminalCommand();
 });
 
 clearButton?.addEventListener("click", () => {

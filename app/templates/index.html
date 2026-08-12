@@ -8,7 +8,7 @@
     <title>Никита Кириленко — DevOps Engineer</title>
     <link rel="icon" href="{{ url_for('static', filename='images/favicon.svg') }}" type="image/svg+xml">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/portfolio.css') }}">
-    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/main.js', v='2') }}" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#profile">Перейти к содержимому</a>
@@ -223,10 +223,10 @@
           <div id="terminal-output" class="terminal-output" aria-live="polite">
             <p class="terminal-line terminal-line--reply"><span>› </span>NIK/OS shell 0.1 — type 'help'</p>
           </div>
-          <form id="terminal-form" class="terminal-form">
+          <div id="terminal-input-group" class="terminal-form" role="group" aria-label="Ввод команды терминала">
             <label for="terminal-command">nikita@localhost:~$</label>
             <input id="terminal-command" name="command" autocomplete="off" spellcheck="false" aria-label="Команда терминала" placeholder="help">
-          </form>
+          </div>
           <div class="command-chips" aria-label="Доступные команды">
             <button type="button" data-command="help">help</button>
             <button type="button" data-command="whoami">whoami</button>
