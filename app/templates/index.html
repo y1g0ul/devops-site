@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Персональная страница Никиты Кириленко: Linux, системное администрирование и Junior DevOps.">
+    <meta name="theme-color" content="#101310">
+    <title>Никита Кириленко — DevOps Engineer</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.svg') }}" type="image/svg+xml">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/portfolio.css') }}">
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#profile">Перейти к содержимому</a>
+
+    <main id="start" class="site-shell">
+      <div class="screen-noise" aria-hidden="true"></div>
+
+      <header class="system-bar" aria-label="Основная панель">
+        <a class="system-mark" href="#start" aria-label="На начало страницы">
+          <span class="system-mark__block" aria-hidden="true"></span>
+          NIK/OS
+        </a>
+        <nav class="system-bar__readout section-nav" aria-label="Разделы страницы">
+          <a href="#profile">PROFILE</a>
+          <a href="#stack">STACK</a>
+          <a href="#history">HISTORY</a>
+          <a href="#contact">CONTACT</a>
+        </nav>
+        <nav class="system-actions" aria-label="Быстрые действия">
+          <a href="https://github.com/y1g0ul" target="_blank" rel="noreferrer">GITHUB ↗</a>
+          <a href="{{ url_for('main.download_resume', filename='nikita-kirilenko-resume.pdf') }}" download>CV.PDF ↓</a>
+        </nav>
+      </header>
+
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="path-label">root@nikita:~/profile</p>
+          <p class="kicker"><span aria-hidden="true">■</span> IDENTITY FILE / 001</p>
+          <h1 id="hero-title" class="hero-title">
+            <span>НИКИТА</span>
+            <span>КИРИЛЕНКО</span>
+          </h1>
+          <div class="role-stack" aria-label="Профессиональные направления">
+            <span>JUNIOR DEVOPS</span>
+            <span>SYSTEM ADMINISTRATION</span>
+            <span>LINUX / INFRASTRUCTURE</span>
+          </div>
+
+          <dl class="identity-data">
+            <div><dt>USER</dt><dd>nikita</dd></div>
+            <div><dt>STATUS</dt><dd><span class="status-dot" aria-hidden="true"></span>learning</dd></div>
+            <div><dt>LOCATION</dt><dd>moscow</dd></div>
+            <div><dt>DIRECTION</dt><dd>devops</dd></div>
+          </dl>
+
+          <div class="hero-actions">
+            <a class="pixel-button pixel-button--primary" href="#profile">OPEN PROFILE <span aria-hidden="true">→</span></a>
+            <a class="pixel-button" href="{{ url_for('main.download_resume', filename='nikita-kirilenko-resume.pdf') }}" download>DOWNLOAD CV.PDF <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+
+        <aside class="node-window" aria-label="Системный профиль Никиты">
+          <div class="window-titlebar">
+            <span>NODE_01://NIKITA</span>
+            <div class="window-controls" aria-hidden="true"><i></i><i></i><i></i></div>
+          </div>
+          <div class="node-screen">
+            <div class="node-screen__grid" aria-hidden="true"></div>
+            <div class="server-graphic" aria-hidden="true">
+              <div class="server-antenna"></div>
+              <div class="server-unit"><i></i><i></i><i></i><span></span></div>
+              <div class="server-unit"><i></i><i></i><i></i><span></span></div>
+              <div class="server-unit"><i></i><i></i><i></i><span></span></div>
+              <div class="server-base"></div>
+            </div>
+            <div class="boot-log" aria-hidden="true">
+              <p><span>[ok]</span> linux.module</p>
+              <p><span>[ok]</span> network.basics</p>
+              <p><span>[ok]</span> docker.service</p>
+              <p><span>[ok]</span> git.control</p>
+              <p><span>[..]</span> career.devops</p>
+            </div>
+            <div class="node-caption">
+              <span>HOST: LOCAL-01</span>
+              <span>UPTIME: IN PROGRESS</span>
+            </div>
+          </div>
+          <div class="window-footer">
+            <span>4 MODULES READY</span>
+            <span class="signal-bars" aria-label="Сигнал: высокий"><i></i><i></i><i></i><i></i></span>
+          </div>
+        </aside>
+      </section>
+
+      <div class="status-ticker" aria-label="Текущий статус">
+        <span class="status-ticker__lead"><i aria-hidden="true"></i> SYSTEM ONLINE</span>
+        <span>CURRENT_FOCUS / GITHUB ACTIONS</span>
+        <span>MODE / LEARNING</span>
+        <span class="status-ticker__end">MOSCOW UTC+3</span>
+      </div>
+
+      <section id="profile" class="profile-section content-section" aria-labelledby="profile-title">
+        <header class="section-heading">
+          <p>FILE 02 / PROFILE.TXT</p>
+          <h2 id="profile-title">Коротко</h2>
+          <span>READ_ONLY</span>
+        </header>
+        <div class="profile-grid">
+          <div class="profile-statement">
+            <p class="profile-statement__lead">Изучаю Linux, инфраструктуру и DevOps.</p>
+            <p>Большую часть технологий осваиваю самостоятельно. Сейчас хочу перейти от учебных стендов к реальным инженерным задачам.</p>
+          </div>
+          <dl class="profile-facts">
+            <div><dt>ROLE</dt><dd>Junior DevOps / младший системный администратор</dd></div>
+            <div><dt>BASE</dt><dd>Москва</dd></div>
+            <div><dt>LANG</dt><dd>Русский · Английский — базовый</dd></div>
+            <div><dt>FOCUS</dt><dd>Linux · CI/CD · инфраструктура</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section id="stack" class="stack-section content-section" aria-labelledby="stack-title">
+        <header class="section-heading">
+          <p>FILE 03 / MODULES.SYS</p>
+          <h2 id="stack-title">Установленные модули</h2>
+          <span>8 GROUPS</span>
+        </header>
+        <div class="module-browser">
+          <div class="module-sidebar" aria-hidden="true">
+            <p>/home/nikita</p>
+            <span>▾ stack</span>
+            <span>├─ system</span>
+            <span>├─ containers</span>
+            <span>├─ pipelines</span>
+            <span>├─ network</span>
+            <span>└─ scripts</span>
+          </div>
+          <div class="module-list">
+            <article class="module-row module-row--active">
+              <span class="module-index">01</span>
+              <div><p>SYSTEM</p><h3>Linux <small>administration</small></h3></div>
+              <span class="module-state">LOADED</span>
+            </article>
+            <article class="module-row">
+              <span class="module-index">02</span>
+              <div><p>CONTAINERS</p><h3>Docker <small>+ Compose</small></h3></div>
+              <span class="module-state">LOADED</span>
+            </article>
+            <article class="module-row">
+              <span class="module-index">03</span>
+              <div><p>PIPELINES</p><h3>GitHub Actions <small>· GitLab CI</small></h3></div>
+              <span class="module-state module-state--learning">LEARNING</span>
+            </article>
+            <article class="module-row">
+              <span class="module-index">04</span>
+              <div><p>AUTOMATION</p><h3>Bash <small>· Python</small></h3></div>
+              <span class="module-state">READY</span>
+            </article>
+            <article class="module-row">
+              <span class="module-index">05</span>
+              <div><p>NETWORK</p><h3>TCP/IP <small>networking basics</small></h3></div>
+              <span class="module-state">READY</span>
+            </article>
+            <article class="module-row">
+              <span class="module-index">06</span>
+              <div><p>DATA / WEB / TOOLS</p><h3>SQL · HTML/CSS/JS <small>· Git · VPS/VDS</small></h3></div>
+              <span class="module-state">READY</span>
+            </article>
+          </div>
+        </div>
+        <p class="module-note">Windows — установка и базовая настройка · Python использовался для автоматизации и учебных проектов.</p>
+      </section>
+
+      <section id="history" class="history-section content-section" aria-labelledby="history-title">
+        <header class="section-heading section-heading--dark">
+          <p>FILE 04 / HISTORY.LOG</p>
+          <h2 id="history-title">История</h2>
+          <span>2023—2025</span>
+        </header>
+        <div class="history-grid">
+          <article class="history-main">
+            <div class="history-meta">
+              <span>11.05.2023—07.06.2023</span><strong>СТАЖЁР</strong>
+              <span>19.10.2023—31.03.2024</span><strong>ТЕХНИК 1 КАТЕГОРИИ</strong>
+            </div>
+            <p class="history-label">WORK.EXPERIENCE</p>
+            <h3>Главный вычислительный центр — филиал ОАО «РЖД»</h3>
+            <ul>
+              <li>Учебная практика и знакомство с задачами вычислительного центра.</li>
+              <li>Мониторинг изменений на FTP-сервере.</li>
+              <li>Автоматическая отправка уведомлений в корпоративный eXpress.</li>
+              <li>Работа по внутренним стандартам и процедурам.</li>
+            </ul>
+          </article>
+          <div class="history-side">
+            <article>
+              <span>2024</span>
+              <p>EDUCATION</p>
+              <h3>Московский индустриальный колледж</h3>
+              <small>Информационные системы и программирование<br>Специалист по информационным системам</small>
+            </article>
+            <article>
+              <span>2024—2025</span>
+              <p>SERVICE</p>
+              <h3>Радист-механик узла связи</h3>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="terminal" class="terminal-section content-section" aria-labelledby="terminal-title">
+        <header class="section-heading">
+          <p>UTILITY 05 / SHELL.EXE</p>
+          <h2 id="terminal-title">Спроси терминал</h2>
+          <span>INTERACTIVE</span>
+        </header>
+        <div class="terminal-window">
+          <div class="terminal-topbar">
+            <span>nikita@localhost: ~</span>
+            <button id="terminal-clear" type="button" aria-label="Очистить терминал">CLEAR ×</button>
+          </div>
+          <div id="terminal-output" class="terminal-output" aria-live="polite">
+            <p class="terminal-line terminal-line--reply"><span>› </span>NIK/OS shell 0.1 — type 'help'</p>
+          </div>
+          <form id="terminal-form" class="terminal-form">
+            <label for="terminal-command">nikita@localhost:~$</label>
+            <input id="terminal-command" name="command" autocomplete="off" spellcheck="false" aria-label="Команда терминала" placeholder="help">
+          </form>
+          <div class="command-chips" aria-label="Доступные команды">
+            <button type="button" data-command="help">help</button>
+            <button type="button" data-command="whoami">whoami</button>
+            <button type="button" data-command="skills">skills</button>
+            <button type="button" data-command="experience">experience</button>
+            <button type="button" data-command="education">education</button>
+            <button type="button" data-command="contact">contact</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact-section content-section" aria-labelledby="contact-title">
+        <header class="section-heading section-heading--contact">
+          <p>FILE 06 / CONTACT.LNK</p>
+          <h2 id="contact-title">Связь</h2>
+          <span>AVAILABLE</span>
+        </header>
+        <div class="contact-grid">
+          <p class="contact-callout">Ищу первую позицию в DevOps или системном администрировании.</p>
+          <div class="contact-links">
+            <a href="https://github.com/y1g0ul" target="_blank" rel="noreferrer"><span>01 / GITHUB</span><strong>y1g0ul ↗</strong></a>
+            <a href="https://t.me/y1g0ul" target="_blank" rel="noreferrer"><span>02 / TELEGRAM</span><strong>@y1g0ul ↗</strong></a>
+            <a href="mailto:markzerone1@gmail.com"><span>03 / EMAIL</span><strong>markzerone1@gmail.com ↗</strong></a>
+            <a href="{{ url_for('main.download_resume', filename='nikita-kirilenko-resume.pdf') }}" download><span>04 / DOCUMENT</span><strong>resume.pdf ↓</strong></a>
+          </div>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <a class="system-mark" href="#start"><span class="system-mark__block" aria-hidden="true"></span>NIK/OS</a>
+        <p>Персональная страница / версия 0.1</p>
+        <a href="#start">BACK TO TOP ↑</a>
+      </footer>
+    </main>
+  </body>
+</html>
