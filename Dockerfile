@@ -15,5 +15,5 @@ USER appuser
 
 ENV PYTHONUNBUFFERED=1
 
-CMD ["gunicorn", "-b", "0.0.0.0:8000", "app:app"]
+CMD ["gunicorn", "-b", "0.0.0.0:8000", "run:app"]
 
