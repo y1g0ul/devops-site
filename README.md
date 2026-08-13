@@ -72,5 +72,5 @@ curl http://127.0.0.1:5000/health
 ├── Dockerfile                             # образ Flask-приложения
 ├── docker-compose.yml                     # сервисы web и nginx
 ├── requirements.txt
-├── run.py                                 # локальный запуск Flask
+└── run.py                                 # локальный запуск Flask
 ```
