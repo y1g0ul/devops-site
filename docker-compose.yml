@@ -5,7 +5,7 @@ services:
       - "8000"
 
   nginx:
-    image: nginx:latest
+    image: nginx:1.31.3
     depends_on:
       - web
     ports:
