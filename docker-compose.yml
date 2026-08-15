@@ -1,11 +1,13 @@
 services:
   web:
     build: .
+    restart: unless-stopped
     expose:
       - "8000"
 
   nginx:
     image: nginx:1.31.3
+    restart: unless-stopped
     depends_on:
       - web
     ports:
